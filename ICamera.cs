@@ -5,6 +5,7 @@ using System.Windows;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using ViDi2;
+using System.ComponentModel;
 
 namespace ViDi2.Camera
 {
@@ -57,7 +58,7 @@ namespace ViDi2.Camera
     /// <summary>
     /// Standard implementation of ICameraParameter interface
     /// </summary>
-    public class CameraParameter : ICameraParameter
+    public class CameraParameter : ICameraParameter, INotifyPropertyChanged
     {
         public CameraParameter(string name, Func<object> get, Action<object> set, 
                                IEnumerable<object> values = null)
@@ -83,6 +84,8 @@ namespace ViDi2.Camera
                     throw new NotSupportedException("This is a read-only parameter");
 
                 setter(value);
+
+                RaisePropertyChanged("Value");
             }
         }
 
@@ -92,6 +95,14 @@ namespace ViDi2.Camera
 
         Action<object> setter;
         Func<object> getter;
+
+        private void RaisePropertyChanged(string prop)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 
     public interface ICamera
