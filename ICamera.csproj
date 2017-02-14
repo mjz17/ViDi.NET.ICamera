@@ -42,8 +42,17 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="ViDi.NET.Interfaces">
-      <HintPath>..\..\ViDi.NET.Interfaces\ViDi.NET.Interfaces.dll</HintPath>
+    <Reference Include="ViDi.NET, Version=2.0.7.3278, Culture=neutral, PublicKeyToken=af17e7056638eaaa, processorArchitecture=MSIL">
+      <HintPath>packages\ViDi.NET.2.0.7.3278\lib\net40\ViDi.NET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ViDi.NET.Base, Version=2.0.7.3278, Culture=neutral, PublicKeyToken=af17e7056638eaaa, processorArchitecture=MSIL">
+      <HintPath>packages\ViDi.NET.2.0.7.3278\lib\net40\ViDi.NET.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ViDi.NET.Interfaces, Version=2.0.7.3278, Culture=neutral, PublicKeyToken=af17e7056638eaaa, processorArchitecture=MSIL">
+      <HintPath>packages\ViDi.NET.2.0.7.3278\lib\net40\ViDi.NET.Interfaces.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -52,6 +61,9 @@
     <Compile Include="ICamera.cs" />
     <Compile Include="ICameraProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
